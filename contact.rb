@@ -30,15 +30,12 @@ class Contact
       CSV.foreach('contacts.csv') do |row|
         count += 1
       end
-      puts count
-
+      count
     end
  
     def find(term)
       # TODO: Will find and return contacts that contain the term in the first name, last name or email
-      i = 0
-      CSV.foreach('contacts.csv') do |email, name| 
-        i += 1
+      CSV.foreach('contacts.csv') do |email, name|
         id = "#{i}: #{name} (#{email})"
         if id.include?(term) 
           puts "#{name} #{email}"
@@ -84,8 +81,7 @@ class Contact
       phone_fusion2 = [phone_type2, phone_num2].join(': ')
        
        CSV.open('contacts.csv', 'a') do |row|
-         CSV.foreach('contacts.csv') do |email, name| 
-          if email == term  
+         CSV.foreach('contacts.csv') do |email, name|  
             row << [email, name, phone_fusion2]
           end
          end

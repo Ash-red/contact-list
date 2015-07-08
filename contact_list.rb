@@ -26,7 +26,7 @@ elsif ARGV[0] == 'new'
     if Contact.test_duplicate(email) 
       puts 'Alert: Contact already existssssssss!'
     else
-      Contact.create(email, name, phone_type, phone_num)
+      puts Contact.create(email, name, phone_type, phone_num)
     end
 elsif ARGV[0] == 'list'
   Contact.all
