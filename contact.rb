@@ -86,7 +86,7 @@ class Contact
        CSV.open('contacts.csv', 'a') do |row|
          CSV.foreach('contacts.csv') do |email, name| 
           if email == term  
-            row << phone_fusion2  
+            row << [email, name, phone_fusion2]
           end
          end
        end
